@@ -5,7 +5,7 @@ services:
     command: ['mysqld', '--character-set-server=utf8', '--collation-server=utf8_general_ci']
     restart: always
     ports:
-      - '8701:3306'
+      - '8711:3306'
     environment:
        MYSQL_DATABASE: 'restaurant_db'
        MYSQL_ROOT_PASSWORD: 'root'
@@ -19,7 +19,7 @@ services:
     command: python manage.py runserver 0.0.0.0:8000
     restart: always
     ports:
-      - "8700:8000"
+      - "8710:8000"
     volumes:
       - ./:/code/
     networks:
@@ -35,7 +35,7 @@ services:
     image: phpmyadmin
     restart: always
     ports:
-      - '8702:80'
+      - '8712:80'
     environment:
       PMA_HOST: db
       MYSQL_ROOT_PASSWORD: 'root'
