@@ -3,20 +3,24 @@ from django.utils import timezone
 
 #原產地
 class Origins(models.Model):
+    photo = models.ImageField(upload_to='upload/origins/', blank=True, default='img.jpg')
     name = models.CharField(max_length=50)
 
 #原料
 class Origins_Food(models.Model):
+    photo = models.ImageField(upload_to='upload/origins_food/', blank=True, default='img.jpg')
     name = models.CharField(max_length=50)  #品名
     produce_from = models.ForeignKey(Origins, on_delete=models.CASCADE, blank=True, null=True)
     price = models.IntegerField()  #價格
 
 #加工廠
 class Processing_Plant(models.Model):
+    photo = models.ImageField(upload_to='upload/processing_plant/', blank=True, default='img.jpg')
     name = models.CharField(max_length=50)
     
 #產品
 class Product(models.Model):
+    photo = models.ImageField(upload_to='upload/product/', blank=True, default='img.jpg')
     name = models.CharField(max_length=50)  #品名
     produce_from = models.ForeignKey(Processing_Plant, on_delete=models.CASCADE, blank=True, null=True)
     price = models.IntegerField()  #價格
