@@ -6,5 +6,10 @@ urlpatterns = [
     path('menu', views.menu),
     path('ingredients', views.ingredients),
     path('booking', views.booking),
+    path('menu/management', views.menu_mangament),
+    path('menu/origins/new', views.origins_new),
+    path('menu/origins-food/new', views.origins_food_new),
+    path('menu/processing-plant/new', views.processing_plant_new),
+    path('menu/product/new', views.product_new),
 
 ]
