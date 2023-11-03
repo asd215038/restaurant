@@ -58,7 +58,7 @@ class Processing_PlantModelForm(forms.ModelForm):
         }
 
 class ProductModelForm(forms.ModelForm):
-    produce_from = forms.ModelChoiceField(queryset=Origins.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))
+    produce_from = forms.ModelChoiceField(queryset=Processing_Plant.objects.all(), widget=forms.Select(attrs={'class': 'form-control'}))
     class Meta:
         model = Product
         fields = ['photo', 'name', 'produce_from', 'price']

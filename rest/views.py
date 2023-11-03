@@ -41,10 +41,23 @@ def origins_food_new(request):
 
 def processing_plant_new(request):
     form = Processing_PlantModelForm()
+    if request.method == "POST":
+        form = Processing_PlantModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '新增成功')
+            return redirect('/menu/management')
     return render(request, 'menu/processing_plant_new.html', locals())
 
 def product_new(request):
+    processing_plant = Processing_Plant.objects.all()
     form = ProductModelForm()
+    if request.method == "POST":
+        form = ProductModelForm(request.POST, request.FILES)
+        if form.is_valid():
+            form.save()
+            messages.success(request, '新增成功')
+            return redirect('/menu/management')
     return render(request, 'menu/product_new.html', locals())
 
 def menu_mangament(request):
